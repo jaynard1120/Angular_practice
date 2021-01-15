@@ -1,0 +1,30 @@
+<!-- <input type="text" class="form-control mb-3" #nameInput [(ngModel)]="name">
+<button class="btn btn-primary ml-3" (click)="submit()">Submit</button>
+<button class="btn btn-info ml-3" (click)="add(nameInput.value)">Add</button>
+<button class="btn btn-warning ml-3" [disabled]="name.length<1" (click)="reset()">Reset</button>
+<h4 class="mt-5">{{defaultName}}</h4>
+<div class="float-left">
+    <h4 *ngFor="let name of listNames">{{name}}</h4>
+</div>
+<div style="margin-left: 50%;">
+    <h3>Number of letters!</h3>
+    <h4>{{nameInput.value.length}}</h4>
+</div>  -->
+
+<!-- <div >
+    <ul >
+        <li *ngFor="let item of ['quick sort', 'merge sort', 'bubble sort']">{{ item }} </li>
+    </ul>
+</div> -->
+<div class="text">
+<h4 (click)="showInfo()">{{person.firstName}} {{person.lastName}}</h4>
+
+</div>
+<div [ngStyle]="{display: show? 'block':'none'}">
+    <p class="info">First Name: {{person.firstName}}</p>
+    <p class="info">Last Name: {{person.lastName}}</p>
+    <p class="info">Age: {{person.Age}}</p>
+    <p class="info" *ngIf="person.nationality!=''">Nationality: {{person.nationality}}</p>
+    <p class="info">Gender: {{person.gender}}</p>
+</div>
+<button class="btn btn-outline-danger" (click)="delete()">Delete</button>
