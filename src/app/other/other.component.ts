@@ -14,13 +14,19 @@ export class OtherComponent implements OnInit {
   
   @Input() person: Person = { firstName: "", lastName: "",nationality:"", Age: 0, gender:"" }
   @Output() data = new EventEmitter();
+  @Output() updateData = new EventEmitter();
+  @Output() hide = new EventEmitter();
   show = false;
   showInfo(){
     this.show = (this.show)? false:true;
   }
 
   delete(){
-    this.data.emit(this.person.firstName)
+    this.data.emit(this.person)
+  }
+  update(){
+    this.updateData.emit(this.person)
+    this.hide.emit(true);
   }
 
   userName;

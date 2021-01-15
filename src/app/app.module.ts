@@ -5,14 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SampleComponent } from './sample/sample.component';
 import { OtherComponent } from './other/other.component'
-import { NewComponent } from './new/new.component';
+import { UpdateFormComponent } from './updateForm/updateForm.component'
 import { from } from 'rxjs';
+import { UpdateComponent } from './update/update.component';
 @NgModule({
   declarations: [
     AppComponent,
     SampleComponent,
     OtherComponent,
-    NewComponent,
+    UpdateFormComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

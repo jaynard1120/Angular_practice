@@ -1,0 +1,14 @@
+<form #listForm="ngForm" (ngSubmit)="save(listForm.value)">
+    <label for="fName">First Name: </label>
+    <input style="width: 30%;" type="text" id="fName" name="firstName" class="form-control mb-3" [(ngModel)]="firstName" >
+    <label for="lName">Last Name: </label>
+    <input style="width: 30%;" type="text" id="lName" name="lastName" class="form-control mb-3" [(ngModel)]="lastName">
+    <label for="nationality">Nationality: </label>
+    <input style="width: 30%;" type="text" id="nationality" name="nationality" class="form-control mb-3" [(ngModel)]="nationality">
+    <label for="age">Age: </label>
+    <input style="width: 30%;" type="text" id="age" name="Age" class="form-control mb-3" [(ngModel)]="Age">
+    <label for="gender">Gender: </label>
+    <input style="width: 30%;" type="text" id="gender" name="gender" class="form-control mb-3" [(ngModel)]="gender">
+    <button class="btn btn-info ml-3" type="submit">Save</button>
+    <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+</form>

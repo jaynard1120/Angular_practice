@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Person } from './models';
-import { FormGroup, FormControl } from '@angular/forms'
+import { FormGroup, FormControl, NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -26,8 +26,8 @@ export class AppComponent {
   age;
   fullname = ""
 
-  delete(event: Event) {
-    this.userNames.splice(this.userNames.findIndex(fName => fName.firstName == String(event)), 1)
+  delete(event: Person) {
+    this.userNames.splice(this.userNames.findIndex(fName => fName == event), 1)
   }
 
   nameInput = ''
@@ -45,8 +45,11 @@ export class AppComponent {
   // nationality;
   // Age;
   // gender;
-  // add(listNames: Person) {
-  //   this.userNames.push(listNames)
+  // add(listNames: NgForm) {
+  //   if(listNames.valid){
+  //     this.userNames.push(listNames.value)
+  //   }
+  //   listNames.reset()
   // }
 
   personInfo = new FormGroup({
@@ -57,6 +60,30 @@ export class AppComponent {
     gender: new FormControl()
   })
   addInfo(names: any){
-    this.userNames.push(names)
+    this.userNames.push(names);
+    this.personInfo.reset();
+  }
+  firstName;
+  lastName;
+  Age;
+  gender;
+  nationality;
+  sharedData;
+  update(value: any){
+    this.firstName = value.firstName
+    this.lastName = value.lastName
+    this.Age = value.Age
+    this.gender = value.gender
+    this.nationality = value.nationality
+    this.sharedData = value
+  }
+  hideDiv = false;
+  hide(event: boolean){
+    this.hideDiv = Boolean(event)? true:false;
+  }
+
+  save(event:Person){
+    this.userNames[(this.userNames.findIndex(data => data == this.sharedData))]=event;
+    
   }
 }

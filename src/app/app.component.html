@@ -1,4 +1,4 @@
-<input type="text" bindon-ngModel="fullName">
+<!-- <input type="text" bindon-ngModel="fullName">
 <h1>Hi {{fullName}}</h1>
 <label for="firstname">First Name:</label>
 <input id="firstname" type="text" [(ngModel)]="firstNameA">
@@ -12,20 +12,29 @@
 </app-sample>
 <br><br><br><br><br>
 <h3>Full Name: {{fullname}}</h3>
-<h3>Current Age: {{age}}</h3>
+<h3>Current Age: {{age}}</h3> -->
 <!-- <hr>
 <app-new></app-new> -->
 <hr>
+<div [hidden]="hideDiv">
 <div *ngFor="let person of userNames">
-    <app-other [person]="person" (data)="delete($event)"></app-other>
+    <app-other [person]="person" (data)="delete($event)" (updateData)="update($event)" (hide)="hide($event)"></app-other>
+</div>
 </div>
 <hr>
 
+<div [hidden]="!hideDiv">
+<app-update [firstName]="firstName" [lastName]="lastName" [Age]="Age" [gender]="gender"
+ [nationality]="nationality" (saveChanges)="save($event)" (hide)="hide($event)">
+
+</app-update>
+</div>
+
 <!-- Template Driven -->
 
-<!-- <form #listForm="ngForm" (ngSubmit)="add(listForm.value)">
+<!-- <form #listForm="ngForm" (ngSubmit)="add(listForm)">
     <label for="fName">First Name: </label>
-    <input style="width: 30%;" type="text" id="fName" name="firstName" class="form-control mb-3" [(ngModel)]="firstName">
+    <input style="width: 30%;" type="text" id="fName" name="firstName" class="form-control mb-3" [(ngModel)]="firstName" >
     <label for="lName">Last Name: </label>
     <input style="width: 30%;" type="text" id="lName" name="lastName" class="form-control mb-3" [(ngModel)]="lastName">
     <label for="nationality">Nationality: </label>
@@ -38,17 +47,18 @@
 </form> -->
 
 <!-- Reactive Driven -->
-
+<hr>
+<h1>App Component</h1>
 <form [formGroup]="personInfo" (ngSubmit)="addInfo(personInfo.value)">
-    <label for="fname">First Name: </label>
-    <input style="width: 30%;" type="text" id="fname" class="form-control mb-3" formControlName="firstName">
-    <label for="lname">Last Name: </label>
-    <input style="width: 30%;" type="text" id="lname"class="form-control mb-3" formControlName="lastName">
-    <label for="Nationality">Nationality: </label>
-    <input style="width: 30%;" type="text" id="Nationality"class="form-control mb-3" formControlName="nationality">
-    <label for="Age">Age: </label>
-    <input style="width: 30%;" type="text" id="Age" class="form-control mb-3" formControlName="Age">
-    <label for="Gender">Gender: </label>
-    <input style="width: 30%;" type="text" id="Gender" class="form-control mb-3" formControlName="gender">
+    <label for="0">First Name: </label>
+    <input style="width: 30%;" type="text" id="0" class="form-control mb-3" formControlName="firstName">
+    <label for="1">Last Name: </label>
+    <input style="width: 30%;" type="text" id="1"class="form-control mb-3" formControlName="lastName">
+    <label for="2">Nationality: </label>
+    <input style="width: 30%;" type="text" id="2"class="form-control mb-3" formControlName="nationality">
+    <label for="3">Age: </label>
+    <input style="width: 30%;" type="text" id="3" class="form-control mb-3" formControlName="Age">
+    <label for="4">Gender: </label>
+    <input style="width: 30%;" type="text" id="4" class="form-control mb-3" formControlName="gender">
     <button class="btn btn-info ml-3" type="submit">Add Name</button>
 </form>
